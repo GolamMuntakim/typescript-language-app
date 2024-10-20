@@ -5,6 +5,9 @@ import './index.css'
 import {ThemeProvider} from '@emotion/react'
 import { createTheme, CssBaseline } from '@mui/material'
 import { Palette } from '@mui/icons-material'
+import { Provider } from "react-redux"
+import { store } from './redux/store.ts'
+
 const theme = createTheme({
   palette:{
     primary:{
@@ -16,7 +19,9 @@ createRoot(document.getElementById('root')!).render(
   <StrictMode>
    <ThemeProvider theme={theme}>
     <CssBaseline/>
+   <Provider store={store}>
    <App />
+   </Provider>
    </ThemeProvider>
   </StrictMode>,
 )
